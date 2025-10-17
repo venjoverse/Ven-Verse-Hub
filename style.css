@@ -732,3 +732,16 @@ html, body {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+/*===============================================support section===============================================*/
+
+.support {
+  margin-top: 150px;
+  text-align: center;
+  font-family: 'EagleHorizon', serif;
+  font-size: 90px;
+  color: white;
+  margin-bottom: 150px;
+  animation: fadeUp 1.5s ease forwards;
+  opacity: 0;
+}
