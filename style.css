@@ -12,19 +12,20 @@
   /* Navbar — buttons resize and wrap */
   .navbar {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px;
-    box-sizing: border-box;
+    justify-content: space-around; /* evenly space buttons */
+    flex-wrap: nowrap;            /* stay in one row */
+    gap: 4px;
+    padding: 8px;
+    overflow-x: auto;             /* allow slight scroll if needed */
+    -webkit-overflow-scrolling: touch;
   }
 
   .navbar button {
-    flex: 1 1 45%;       /* Each button takes ~half of the row */
-    min-width: 120px;
-    max-width: 45%;
-    font-size: 14px;
-    padding: 10px 0;
+    flex: 0 0 auto;               /* prevent shrinking too much */
+    font-size: 12px;              /* smaller text for mobile */
+    padding: 6px 10px;            /* adjust padding */
+    min-width: 70px;              /* ensures tappable area */
+    max-width: 100px;
   }
 
   /* Welcome section — scale text */
