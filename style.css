@@ -1,22 +1,20 @@
-/* MOBILE VIEW — applies below 768px width*/
+/* MOBILE VIEW — applies below 768px width */
 @media (max-width: 768px) {
 
-  /* General zoom scaling */
+  /* ✅ Removed transform scaling — just ensure full width */
   html, body {
     overflow-x: hidden;
     width: 100%;
     margin: 0;
     padding: 0;
-    transform: scale(0.9);
-    transform-origin: top center;
   }
 
-  /* Navbar */
+  /* ✅ Navbar buttons resize & wrap cleanly */
   .navbar {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     margin-top: 10px;
     padding: 0 10px;
     width: 100%;
@@ -24,25 +22,29 @@
   }
 
   .navbar button {
-    max-width: 100px;
-    font-size: 12px;
-    padding: 5px 8px;
+    flex: 1 1 30%;
+    font-size: 13px;
+    padding: 8px 10px;
+    min-width: 80px;
+    max-width: 110px;
   }
 
-  /* Headings */
+  /* ✅ Welcome text & intro properly scaled */
   .welcome {
-    font-size: 32px;
+    font-size: 42px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
+    margin-bottom: 20px;
   }
 
   .introduction {
     font-size: 14px;
     text-align: center;
-    margin: 0 10px;
+    margin: 0 15px;
+    line-height: 1.6;
   }
 
-  /* Carousel section */
+  /* ✅ Carousel fits mobile viewport */
   .flat-carousel {
     width: 100%;
     overflow: hidden;
@@ -51,11 +53,11 @@
   }
 
   .flat-item {
-    flex: 0 0 85%;
-    max-width: 85%;
+    flex: 0 0 90%;
+    max-width: 90%;
   }
 
-  /* Specifications & Peripherals */
+  /* ✅ Spec & peripheral gallery images resize neatly */
   .spec-gallery,
   .peripheral-gallery {
     display: flex;
@@ -68,8 +70,8 @@
 
   .spec-item img,
   .peripheral-item img {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
   }
 
   .spec-desc {
@@ -77,43 +79,15 @@
     text-align: center;
   }
 
-  /* Game Library (if any) */
+  /* ✅ Game library padding & cards adjusted */
   .games-library {
     padding: 20px 10px;
+    gap: 20px;
   }
 
   .game-item {
     width: 45%;
   }
-}
-
-/* Prevent unwanted horizontal scroll */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Ensure carousel fits mobile */
-.flat-carousel {
-  max-width: 100vw;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Make sure track doesn't stretch */
-.flat-track {
-  display: flex;
-  transition: transform 0.6s ease;
-  will-change: transform;
-}
-
-/* Images should never exceed screen width */
-.flat-item {
-  flex: 0 0 auto;
-  max-width: 100vw;
-  box-sizing: border-box;
 }
 
 /*===============================================animation===============================================*/
