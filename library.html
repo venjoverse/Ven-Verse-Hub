@@ -2,23 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1280">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ven Verse</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body style="background-image: url('./pictures/background.jpg');">
 
-  <div class="container">
-    <nav class="navbar">
-      <button onclick="window.location.href='index.html'">Home</button>
-      <button onclick="window.location.href='profile.html'">Profile</button>
-      <button onclick="window.location.href='setup.html'">Setup</button>
-      <button onclick="window.location.href='library.html'">Library</button>
-      <button onclick="window.location.href='support.html'">Support</button>
-    </nav>
+  <header>
+      <div class="navbar">
+        <a href="index.html" class="navbar-title">Ven's Hub</a>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="setup.html">Setup</a></li>
+          <li><a href="library.html">Library</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+    </header>
 
     <section class="game-list">
-      <h2 class="games-list">Game Library</h2>
+      <h2 class="games-list">Games</h2>
 
       <div class="games-library">
 

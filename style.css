@@ -9,24 +9,6 @@
     width: 100%;
   }
 
-  /* Navbar — buttons resize and wrap */
-  .navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  .navbar button {
-    flex: 1 1 45%;       /* Each button takes ~half of the row */
-    min-width: 120px;
-    max-width: 45%;
-    font-size: 14px;
-    padding: 10px 0;
-  }
-
   /* Welcome section — scale text */
   .welcome {
     font-size: 28px;
@@ -136,6 +118,11 @@
   src: url('./fonts/EagleHorizon.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'BestieSeventy';
+  src: url('./fonts/BestieSeventy.ttf') format('truetype');
+}
+
 /*===============================================global style===============================================*/
 body {
   background-image: url('background.jpg');
@@ -157,6 +144,7 @@ body {
   font-size: 90px;
   color: white;
   margin-bottom: 150px;
+  text-shadow: 0 0 12px rgba(255,255,255,0.4);
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
 }
@@ -172,31 +160,114 @@ body {
   opacity: 0;
 }
 
-/*===============================================nav bar section===============================================*/
+/*===============================================Ven's Hub Hamburger Navbar===============================================*/
 .navbar {
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 30px;
-  opacity: 1; /* make sure it's visible without animation */
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
-.navbar button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  font-size: 16px;
-  padding: 10px 35px;
-  border-radius: 10px;
-  backdrop-filter: blur(4px);
+.navbar-title {
+  font-family: 'BestieSeventy', serif;
+  font-weight: 100;
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
-  font-family: 'Arial', serif;
 }
 
-.navbar button:hover {
+.navbar-title:hover {
+  animation: pulseGlowFilter 2.5s infinite ease-in-out;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  width: 30px;
+  height: 22px;
+  position: relative;
+  z-index: 1001;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1100;
+}
+
+.hamburger span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 9px; }
+.hamburger span:nth-child(3) { bottom: 0; }
+
+/* Transform to X when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 9px;
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 9px;
+}
+
+/* Dropdown Menu */
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 180px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  overflow: hidden;
+  max-height: 0; /* 🔹 Keeps it hidden initially */
+  transition: max-height 0.4s ease-in-out;
+}
+
+.nav-links.open {
+  display: block;
+  max-height: 300px; /* 🔹 Shows menu when toggled */
+}
+
+.nav-links li {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.nav-links a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 16px;
+  font-family: 'Arial', serif;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
+  border-radius: 8px;
 }
 
 /*===============================================about section===============================================*/
@@ -718,6 +789,7 @@ html, body {
   font-size: 90px;
   color: white;
   margin-bottom: 150px;
+  text-shadow: 0 0 12px rgba(255,255,255,0.4);
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
 }
