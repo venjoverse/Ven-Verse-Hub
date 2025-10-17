@@ -1,73 +1,76 @@
-/* =============================== MOBILE VIEW — applies below 768px width =============================== */
+/* MOBILE VIEW — below 768px */
 @media (max-width: 768px) {
 
-  /* Remove scaling — just make it responsive */
+  /* Prevent horizontal scroll */
   html, body {
-    transform: scale(1.1);
-    transform-origin: top center;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
-  /* Navbar — horizontal layout, resized for mobile */
+  /* Navbar — buttons resize and wrap */
   .navbar {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    gap: 4px;
-    padding: 8px 5px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
     box-sizing: border-box;
   }
 
   .navbar button {
-    flex: 0 0 auto;
-    font-size: 12px;
-    padding: 6px 10px;
-    min-width: 70px;
-    max-width: 100px;
+    flex: 1 1 45%;       /* Each button takes ~half of the row */
+    min-width: 120px;
+    max-width: 45%;
+    font-size: 14px;
+    padding: 10px 0;
   }
 
-  /* Headings */
+  /* Welcome section — scale text */
   .welcome {
-    font-size: 32px;
+    font-size: 28px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
 
   .introduction {
     font-size: 14px;
+    margin: 0 15px;
     text-align: center;
-    margin: 0 10px;
+    line-height: 1.5;
   }
 
-  /* Carousel */
+  /* Carousel — make image fill screen width */
   .flat-carousel {
     width: 100%;
-    overflow: hidden;
     margin: 0 auto;
+    overflow: hidden;
     box-sizing: border-box;
   }
 
-  .flat-item {
-    flex: 0 0 85%;
-    max-width: 85%;
+  .flat-item img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
-  /* Specifications & Peripherals */
+  /* Specifications & peripherals — grid layout for mobile */
   .spec-gallery,
   .peripheral-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    padding: 0 10px;
+    justify-items: center;
+    padding: 10px;
     box-sizing: border-box;
   }
 
   .spec-item img,
   .peripheral-item img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: auto;
   }
 
   .spec-desc {
@@ -75,41 +78,18 @@
     text-align: center;
   }
 
-  /* Game Library */
+  /* Game library — two per row */
   .games-library {
-    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
   }
 
   .game-item {
-    width: 45%;
+    width: 100%;
+    box-sizing: border-box;
   }
-}
-
-/* =============================== Prevent unwanted horizontal scroll =============================== */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* =============================== Carousel =============================== */
-.flat-carousel {
-  max-width: 100vw;
-  overflow: hidden;
-  position: relative;
-}
-
-.flat-track {
-  display: flex;
-  transition: transform 0.6s ease;
-  will-change: transform;
-}
-
-.flat-item {
-  flex: 0 0 auto;
-  max-width: 100vw;
-  box-sizing: border-box;
 }
 
 /*===============================================animation===============================================*/
