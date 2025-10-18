@@ -549,19 +549,27 @@ body {
   .introduction { margin: 0 30px; font-size: 18px; }
 }
 
-@media screen and (max-width: 1080px) and (orientation: portrait) {
-  .spec-gallery, .peripheral-gallery {
+@media screen and (max-width: 1080px), screen and (orientation: portrait) {
+  .spec-gallery {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 25px !important;
     justify-items: center;
-    align-items: center;
-    padding: 20px;
-    max-width: 600px;
+    align-items: start;
+    text-align: center;
     margin: 0 auto;
+    width: 100%;
   }
-  .spec-item img, .peripheral-item img {
-    width: 130px !important;
+
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .spec-item img {
+    width: 120px;
     height: auto;
   }
 }
