@@ -72,6 +72,125 @@
     width: 100%;
     box-sizing: border-box;
   }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .navbar-title {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .hamburger span {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  /* Adjust text and sections */
+  h1, h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Profile Page */
+  .about {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .profile-box img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .about-text {
+    width: 100%;
+  }
+
+  /* Setup Page */
+  .flat-carousel img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 10px;
+  }
+
+  .spec-gallery, .peripheral-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .spec-item img, .peripheral-item img {
+    width: 80px;
+  }
+
+  /* Library Page */
+  .games-library {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-item {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .game-image-container img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .game-info p {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 
 /*===============================================animation===============================================*/
