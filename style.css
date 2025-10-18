@@ -670,22 +670,59 @@ body {
   .flat-carousel { width: 100% !important; max-width: 100% !important; margin: 0 auto; overflow: hidden; display: flex; justify-content: center; align-items: center; }
   .flat-item img { width: 100% !important; height: auto !important; object-fit: cover; border-radius: 10px; }
 
-  /* Specs & Peripherals - switch to more compact grid */
-  .specs-section { padding: 30px 15px; text-align: center; }
-  .spec-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; justify-items: center; align-items: center; max-width: 500px; margin: 0 auto; }
-  .spec-item img { width: 130px; }
-  .peripheral-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; padding: 25px; max-width: 500px; margin: 0 auto; }
-  .peripheral-item img { width: 130px; }
-
-  @media (max-width: 480px) {
-    .spec-gallery { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .spec-item img { width: 100px; }
+  /* Specs & Peripherals - compact grid layout */
+  .specs-section {
+    padding: 30px 15px;
+    text-align: center;
   }
 
+  .spec-gallery,
+  .peripheral-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    justify-items: center;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .spec-item img,
+  .peripheral-item img {
+    width: 130px;
+  }
+
+  /* ✅ For ~1080×2436 screens (e.g. iPhone 12/13/14) */
+  @media (max-width: 430px) and (min-height: 800px) {
+    .spec-gallery,
+    .peripheral-gallery {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(120px, auto); /* ensures 2 rows */
+      gap: 20px;
+    }
+
+    .spec-item img,
+    .peripheral-item img {
+      width: 110px;
+    }
+  }
+
+  /* Smaller phones (≤ 400px wide) */
   @media (max-width: 400px) {
-    .spec-gallery, .peripheral-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
-    .spec-item img, .peripheral-item img { width: 100px; }
-    .spec-desc, .peripheral-desc { font-size: 0.85rem; }
+    .spec-gallery,
+    .peripheral-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .spec-item img,
+    .peripheral-item img {
+      width: 100px;
+    }
+
+    .spec-desc,
+    .peripheral-desc {
+      font-size: 0.85rem;
+    }
   }
 
   /* Games Library -> single column on small screens */
