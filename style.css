@@ -11,7 +11,7 @@
 
   /* Welcome section — scale text */
   .welcome {
-    font-size: 28px;
+    font-size: 15px;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -38,26 +38,52 @@
     display: block;
   }
 
-  /* Specifications & peripherals — grid layout for mobile */
+  /* ====== Default (Desktop / Tablet) ====== */
   .spec-gallery,
   .peripheral-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row on larger screens */
     gap: 15px;
     justify-items: center;
     padding: 10px;
     box-sizing: border-box;
   }
 
+  /* Image settings */
   .spec-item img,
   .peripheral-item img {
-    width: 100px;
+    width: 100%;
+    max-width: 120px; /* Limit image width */
     height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
   }
 
+  /* Description text */
   .spec-desc {
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
+    margin-top: 6px;
+    color: #fff;
+  }
+
+  /* ====== 📱 Mobile (2×2 Grid View) ====== */
+  @media (max-width: 768px) {
+    .spec-gallery,
+    .peripheral-gallery {
+      grid-template-columns: repeat(2, 1fr); /* 2 per row */
+      gap: 10px;
+    }
+
+    .spec-item img,
+    .peripheral-item img {
+      max-width: 100px; /* Resize for smaller screens */
+    }
+
+    .spec-desc {
+      font-size: 11px;
+    }
   }
 
   /* Game library — two per row */
@@ -260,9 +286,9 @@ body {
   margin-top: 150px;
   text-align: center;
   font-family: 'EagleHorizon', serif;
-  font-size: 90px;
+  font-size: 40px;
   color: white;
-  margin-bottom: 150px;
+  margin-bottom: 70px;
   text-shadow: 0 0 12px rgba(255,255,255,0.4);
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
@@ -567,7 +593,7 @@ body {
 
 /*===============================================skills description===============================================*/
 .skills-description {
-  text-align: left;
+  text-align: center;
   max-width: 700px;
   margin: 60px auto;
   color: #f0f0f0;
