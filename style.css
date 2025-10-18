@@ -1,174 +1,11 @@
-/* ================================================
-   UNIVERSAL MOBILE RESPONSIVE DESIGN
-   Works across all phone sizes (320px–600px)
-================================================ */
+/*===============================================
+  CLEANED / FIXED style.css
+  - Consolidated mobile media queries
+  - Removed duplicate selectors and conflicts
+  - Background set to scroll so it moves while scrolling
+===============================================*/
 
-/* --- Small Phones --- */
-@media (max-width: 360px) {
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  .navbar-title {
-    font-size: 1rem;
-  }
-
-  .profile-box img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .support {
-    font-size: 35px;
-  }
-}
-
-/* --- Standard / Mid-size Phones (Most Devices) --- */
-@media (max-width: 480px) {
-  html, body {
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-
-  .welcome {
-    font-size: 18px;
-    text-align: center;
-    margin: 40px 0 10px;
-  }
-
-  .introduction {
-    font-size: 14px;
-    margin: 0 15px;
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  .spec-gallery,
-  .peripheral-gallery,
-  .games-library {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 10px;
-    justify-items: center;
-  }
-
-  .spec-item img,
-  .peripheral-item img {
-    width: 80px;
-  }
-
-  .game-image-container img {
-    height: 180px;
-  }
-
-  .game-info {
-    font-size: 13px;
-  }
-
-  .username {
-    font-size: 0.8em;
-  }
-
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-  }
-
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25px;
-    height: 18px;
-  }
-
-  .hamburger span {
-    height: 3px;
-    width: 100%;
-    background-color: white;
-    border-radius: 2px;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
-    padding: 20px 0;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .about {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .profile-box img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-  }
-
-  .about-text {
-    width: 100%;
-    text-align: center;
-  }
-
-  .skills {
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .skill img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .bar {
-    width: 150px;
-  }
-
-  .support {
-    font-size: 45px;
-    margin: 80px 0 100px;
-  }
-}
-
-/* --- Large Phones / Phablets --- */
-@media (max-width: 600px) {
-  .about {
-    padding: 25px;
-  }
-
-  .profile-box img {
-    width: 140px;
-    height: 140px;
-  }
-
-  .navbar-title {
-    font-size: 1.3rem;
-  }
-
-  .support {
-    font-size: 50px;
-  }
-}
-
-/*===============================================animation===============================================*/
+/*===============================================global animations===============================================*/
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -180,55 +17,56 @@
   }
 }
 
-/*===============================================pulse glow effect===============================================*/
 @keyframes pulseGlowBox {
-  0% {
-    box-shadow: 0 0 15px rgba(255,255,255,0.4);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(255,255,255,0.8);
-  }
-  100% {
-    box-shadow: 0 0 15px rgba(255,255,255,0.4);
-  }
+  0% { box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+  50% { box-shadow: 0 0 25px rgba(255,255,255,0.8); }
+  100% { box-shadow: 0 0 15px rgba(255,255,255,0.4); }
 }
 
-/* For transparent PNGs (drop-shadow) */
 @keyframes pulseGlowFilter {
-  0% {
-    filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
-  }
-  50% {
-    filter: drop-shadow(0 0 25px rgba(255,255,255,0.8));
-  }
-  100% {
-    filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
-  }
+  0% { filter: drop-shadow(0 0 15px rgba(255,255,255,0.4)); }
+  50% { filter: drop-shadow(0 0 25px rgba(255,255,255,0.8)); }
+  100% { filter: drop-shadow(0 0 15px rgba(255,255,255,0.4)); }
 }
 
-/*===============================================custom font===============================================*/
+/*===============================================custom fonts===============================================*/
 @font-face {
   font-family: 'EagleHorizon';
   src: url('./fonts/EagleHorizon.ttf') format('truetype');
 }
-
 @font-face {
   font-family: 'BestieSeventy';
   src: url('./fonts/BestieSeventy.ttf') format('truetype');
 }
 
 /*===============================================global style===============================================*/
+html, body {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* Hide horizontal scrollbar, allow vertical scroll */
+  overflow-x: hidden;
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 body {
+  /* Background: removed fixed attachment so background moves when scrolling */
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll; /* allows background to move while scrolling */
   color: white;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-y: auto;
   margin: 0;
+  font-family: 'Arial', sans-serif;
 }
+
+/* Hide scrollbar for WebKit browsers */
+::-webkit-scrollbar { display: none; }
 
 /*===============================================welcome & intro section===============================================*/
 .welcome {
@@ -269,9 +107,7 @@ body {
 
 .navbar-title {
   font-family: 'BestieSeventy', serif;
-  font-weight: 100;
   color: white;
-  text-decoration: none;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -287,12 +123,10 @@ body {
   width: 30px;
   height: 22px;
   position: relative;
-  z-index: 1001;
   cursor: pointer;
   transition: transform 0.3s ease;
   z-index: 1100;
 }
-
 .hamburger span {
   position: absolute;
   width: 100%;
@@ -301,19 +135,15 @@ body {
   border-radius: 10px;
   transition: all 0.3s ease;
 }
-
 .hamburger span:nth-child(1) { top: 0; }
 .hamburger span:nth-child(2) { top: 9px; }
 .hamburger span:nth-child(3) { bottom: 0; }
 
-/* Transform to X when active */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg);
   top: 9px;
 }
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
+.hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg);
   bottom: 9px;
@@ -334,20 +164,16 @@ body {
   padding: 10px 0;
   margin: 0;
   overflow: hidden;
-  max-height: 0; /* 🔹 Keeps it hidden initially */
+  max-height: 0;
   transition: max-height 0.4s ease-in-out;
 }
 
 .nav-links.open {
   display: block;
-  max-height: 300px; /* 🔹 Shows menu when toggled */
+  max-height: 300px;
 }
 
-.nav-links li {
-  text-align: center;
-  margin: 5px 0;
-}
-
+.nav-links li { text-align: center; margin: 5px 0; }
 .nav-links a {
   display: block;
   color: white;
@@ -357,7 +183,6 @@ body {
   font-family: 'Arial', serif;
   transition: 0.3s;
 }
-
 .nav-links a:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
@@ -374,7 +199,7 @@ body {
   flex-wrap: wrap;
 }
 
-/*===============================================profile box section===============================================*/
+/* Profile box */
 .profile-box {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 20px;
@@ -387,7 +212,6 @@ body {
   animation: fadeUp 1.2s ease forwards;
   opacity: 0;
 }
-
 .profile-box img {
   width: 100%;
   height: 260px;
@@ -397,36 +221,12 @@ body {
   animation: fadeUp 1.8s ease forwards;
   opacity: 0;
 }
+.profile-box h3 { letter-spacing: 2px; font-size: 14px; margin-bottom: 5px; }
+.profile-box p { font-size: 14px; margin-bottom: 10px; }
 
-.profile-box h3 {
-  letter-spacing: 2px;
-  font-size: 14px;
-  margin-bottom: 5px;
-  font-family: 'Arial', serif;
-}
-
-.profile-box p {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-/*===============================================interests & socmed section===============================================*/
-.name {
-  animation: fadeUp 2s ease forwards;
-  opacity: 0;
-  font-family: 'Arial', serif;
-  margin-top: 1px;
-}
-
-.hobby {
-  animation: fadeUp 2s ease forwards;
-  opacity: 0;
-  font-weight: bold;
-  font-family: 'Arial', serif;
-  font-size: 14px;
-  margin-bottom: 50px;
-}
-
+/* Interests & social */
+.name, .hobby, .interests, .social-media { animation: fadeUp 2s ease forwards; opacity: 0; }
+.hobby { font-weight: bold; font-family: 'Arial', serif; font-size: 14px; margin-bottom: 50px; }
 .interests, .social-media {
   font-family: 'Arial', serif;
   background: rgba(255, 255, 255, 0.08);
@@ -436,13 +236,9 @@ body {
   margin: 0 auto 30px;
   text-align: center;
   width: fit-content;
-  animation: fadeUp 1.2s ease forwards;
-  opacity: 0;
 }
-
 .social-media h3, .interests h3 {
-  margin-top: 0;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
   color: #fff;
   font-weight: 700;
   font-size: 18px;
@@ -453,7 +249,6 @@ body {
   display: inline-block;
   padding-bottom: 4px;
 }
-
 .social-media p, .interests p {
   display: flex;
   align-items: center;
@@ -463,15 +258,9 @@ body {
   font-size: 14px;
   gap: 10px;
 }
+.social-media i { color: white; font-size: 20px; width: 25px; text-align: center; }
 
-.social-media i {
-  color: white;
-  font-size: 20px;
-  width: 25px;
-  text-align: center;
-}
-
-/*===============================================about section===============================================*/
+/*===============================================about-text===============================================*/
 .about-text {
   flex: 1;
   max-width: 700px;
@@ -479,15 +268,12 @@ body {
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
 }
-
-.about-text h1,
-.about-text h2 {
+.about-text h1, .about-text h2 {
   font-family: 'EagleHorizon', cursive;
   font-size: 2.8rem;
   margin-bottom: 10px;
   text-shadow: 0 0 12px rgba(255,255,255,0.4);
 }
-
 .about-text p {
   font-family: 'Arial';
   line-height: 1.6;
@@ -503,13 +289,7 @@ body {
   flex-wrap: wrap;
   gap: 30px;
 }
-
-.skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+.skill { display: flex; flex-direction: column; align-items: center; }
 .skill img {
   border-radius: 50px;
   width: 60px;
@@ -520,17 +300,9 @@ body {
   box-shadow: 0 0 20px rgba(255,255,255,0.4);
   animation: fadeUp 1.5s ease forwards, pulseGlowBox 3s infinite ease-in-out;
 }
-
-.bar {
-  width: 180px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
+.bar { width: 180px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 10px; overflow: hidden; }
 .progress {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.85);
   height: 100%;
   color: black;
   font-family: 'Arial', serif;
@@ -542,7 +314,7 @@ body {
 
 /*===============================================skills description===============================================*/
 .skills-description {
-  text-align: center;
+  text-align: left;
   max-width: 700px;
   margin: 60px auto;
   color: #f0f0f0;
@@ -551,7 +323,6 @@ body {
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
 }
-
 .skills-description h2 {
   font-family: 'EagleHorizon', cursive;
   font-size: 2.5rem;
@@ -559,46 +330,11 @@ body {
   text-shadow: 0 0 10px rgba(255,255,255,0.4);
   margin-bottom: 20px;
 }
+.skills-description ul { list-style: none; padding: 0; }
+.skills-description li { margin-bottom: 15px; font-size: 16px; color: #ddd; }
+.skills-description strong { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.3); }
 
-.skills-description ul {
-  list-style: none;
-  padding: 0;
-}
-
-.skills-description li {
-  margin-bottom: 15px;
-  font-size: 16px;
-  color: #ddd;
-}
-
-.skills-description strong {
-  color: #fff;
-  text-shadow: 0 0 8px rgba(255,255,255,0.3);
-}
-
-/*===============================================responsive design===============================================*/
-@media (max-width: 900px) {
-  .about {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-
-  .skills {
-    justify-content: center;
-  }
-
-  .introduction {
-    margin: 0 30px;
-    font-size: 18px;
-  }
-}
-
-/*===============================================pc setup section===============================================*/
+/*===============================================pc setup section & carousel===============================================*/
 .setup-section {
   margin-top: 50px;
   text-align: center;
@@ -620,7 +356,7 @@ body {
 .flat-carousel {
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto;             
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
@@ -642,24 +378,9 @@ body {
   overflow: hidden;
   border-radius: 15px;
 }
-
-.flat-item img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.flat-item.active {
-  opacity: 1;
-  transform: scale(1);
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.flat-item.active img {
-  border-radius: 15px;
-}
+.flat-item img { width: 100%; display: block; object-fit: cover; }
+.flat-item.active { opacity: 1; transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+.flat-item.active img { border-radius: 15px; }
 
 .flat-btn {
   position: absolute;
@@ -674,27 +395,19 @@ body {
   cursor: pointer;
   z-index: 10;
 }
-
-.flat-btn:hover {
-  background: none;
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
-}
-
+.flat-btn:hover { filter: drop-shadow(0 0 8px rgba(255,255,255,0.8)); }
 .flat-btn.prev { left: 10px; }
 .flat-btn.next { right: 10px; }
 
 /*===============================================specs & peripherals section===============================================*/
-.specs-section,
-.peripherals-section {
+.specs-section, .peripherals-section {
   text-align: center;
   padding: 60px 5%;
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
 }
 
-/* Titles */
-.setup-title,
-.peripherals-title {
+.setup-title, .peripherals-title {
   font-family: 'EagleHorizon', cursive;
   font-size: 40px;
   color: white;
@@ -702,9 +415,8 @@ body {
   text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
-/* Shared gallery layout */
-.spec-gallery,
-.peripheral-gallery {
+/* Shared gallery layout — desktop */
+.spec-gallery, .peripheral-gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -713,18 +425,8 @@ body {
   margin: 0 auto 40px auto;
 }
 
-/* Shared item styling */
-.spec-item,
-.peripheral-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* Text labels */
-.spec-item p,
-.peripheral-item p {
+.spec-item, .peripheral-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.spec-item p, .peripheral-item p {
   font-family: 'Arial', serif;
   font-size: 18px;
   color: rgb(255, 255, 255);
@@ -732,23 +434,16 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
-/* Image styling — natural sizes */
-.spec-item img,
-.peripheral-item img {
+.spec-item img, .peripheral-item img {
   width: 160px;
   height: 160px;
   object-fit: contain;
 }
-
-.spec-item img:hover,
-.peripheral-item img:hover {
+.spec-item img:hover, .peripheral-item img:hover {
   transform: scale(1.05);
   animation: pulseGlowFilter 2.5s infinite ease-in-out;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-
-/* 🔹 Description Text */
 .spec-desc {
   margin-top: 10px;
   font-weight: 300 !important;
@@ -760,7 +455,6 @@ body {
 }
 
 /*===============================================library section===============================================*/
-/* Titles */
 .games-list {
   font-family: 'EagleHorizon', cursive;
   font-size: 40px;
@@ -778,27 +472,20 @@ body {
   padding: 150px;
 }
 
-/* Game Card */
 .game-item {
   position: relative;
-  background: rgba(255, 255, 255, 0.08); /* semi-transparent */
-  backdrop-filter: blur(10px);       /* frosted glass blur */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 15px;
   overflow: hidden;
-  width: 220px;   /* slightly wider */
-  padding: 15px;  /* space around image */
+  width: 220px;
+  padding: 15px;
   transition: transform 0.3s ease, filter 0.3s ease;
   border: 2px solid rgba(255, 255, 255, 0.15);
 }
+.game-item:hover { transform: scale(1.05); animation: pulseGlowBox 2.5s infinite ease-in-out; }
 
-.game-item:hover {
-  transform: scale(1.05);
-  animation: pulseGlowBox 2.5s infinite ease-in-out;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-/* Game Image */
 .game-image-container img {
   width: 100%;
   height: 240px;
@@ -807,7 +494,6 @@ body {
   display: block;
 }
 
-/* Game Info */
 .game-info {
   padding: 10px;
   font-family: 'Arial', serif;
@@ -817,17 +503,8 @@ body {
   background: none;
 }
 
-.game-fortnite {
-  font-weight: bold;
-  margin-bottom: 1px;
-}
+.game-fortnite, .game-cod { font-weight: bold; }
 
-.game-cod {
-  font-weight: bold;
-  margin-bottom: 9.5px;
-}
-
-/* (Logo + Username) */
 .game-meta {
   display: flex;
   align-items: center;
@@ -837,52 +514,120 @@ body {
   margin-top: 5px;
 }
 
-/* Username text */
 .username {
   font-size: 0.85em;
-  font-weight: 100;
   color: #ffffff;
   font-weight: 600;
 }
-
-/* Base logo style */
-.game-meta img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  border-radius: 0;
-}
-
-/* Epic Games logo - keep original */
-.activision-logo, .epic-logo {
-  filter: none;
-}
-
-/* HIDE SCROLLBAR COMPLETELY (All Browsers) */
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-html, body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
+.game-meta img { width: 30px; height: 30px; object-fit: contain; border-radius: 0; }
+.activision-logo, .epic-logo { filter: none; }
 
 /*===============================================support section===============================================*/
-
 .support {
   margin-top: 150px;
   text-align: center;
   font-family: 'EagleHorizon', serif;
-  font-size: 90px;
+  font-size: 40px;
   color: white;
   margin-bottom: 150px;
   text-shadow: 0 0 12px rgba(255,255,255,0.4);
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
 }
+
+/*===============================================Responsive rules (consolidated)===============================================*/
+
+/* Desktop -> Tablet adjustments */
+@media (max-width: 900px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .about-text { text-align: center; }
+  .skills { justify-content: center; }
+  .introduction { margin: 0 30px; font-size: 18px; }
+}
+
+/* Mobile / High DPI devices (consolidated mobile rules) */
+@media (max-width: 600px) {
+  /* Prevent horizontal scroll */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Welcome / Intro */
+  .welcome { font-size: 18px; margin-top: 40px; margin-bottom: 10px; }
+  .introduction { font-size: 14px; margin: 0 15px; text-align: center; line-height: 1.5; }
+
+  /* Navbar */
+  .navbar { justify-content: center; padding: 12px 15px; }
+  .navbar-title { font-size: 1.2rem; text-align: center; }
+  .hamburger { position: absolute; right: 15px; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+  .nav-links.active { display: flex; }
+
+  /* Carousel */
+  .flat-carousel { width: 100% !important; max-width: 100% !important; margin: 0 auto; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+  .flat-item img { width: 100% !important; height: auto !important; object-fit: cover; border-radius: 10px; }
+
+  /* Specs & Peripherals - switch to more compact grid */
+  .specs-section { padding: 30px 15px; text-align: center; }
+  .spec-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; justify-items: center; align-items: center; max-width: 500px; margin: 0 auto; }
+  .spec-item img { width: 130px; }
+  .peripheral-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; padding: 25px; max-width: 500px; margin: 0 auto; }
+  .peripheral-item img { width: 130px; }
+
+  @media (max-width: 480px) {
+    .spec-gallery { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .spec-item img { width: 100px; }
+  }
+
+  @media (max-width: 400px) {
+    .spec-gallery, .peripheral-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .spec-item img, .peripheral-item img { width: 100px; }
+    .spec-desc, .peripheral-desc { font-size: 0.85rem; }
+  }
+
+  /* Games Library -> single column on small screens */
+  .games-library { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 20px; justify-items: center; }
+  .game-item { width: 90%; background: rgba(0, 0, 0, 0.4); border-radius: 15px; padding-bottom: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.5); }
+  .game-image-container img { width: 100%; height: 290px; object-fit: cover; border-radius: 12px 12px 0 0; }
+  .game-info { font-size: 1rem; padding: 10px 0; color: white; }
+  .game-info h3 { margin: 5px 0; font-size: 1.2rem; }
+  .game-meta img { width: 26px; height: 26px; }
+  .username { font-size: 0.9rem; opacity: 0.85; }
+
+  /* Text scaling */
+  h1, h2 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+  p, .game-info, .introduction { font-size: clamp(0.8rem, 3vw, 1rem); }
+
+  /* Skills */
+  .skills { justify-content: center; gap: 15px; }
+  .skill img { width: 50px; height: 50px; }
+  .bar { width: 150px; }
+  .skills-description { text-align: center; margin: 30px auto; width: 100%; max-width: 100%; }
+
+  /* About/Profile */
+  .profile-box img { width: 120px; height: 120px; border-radius: 50%; }
+  .about { padding: 20px; flex-direction: column; align-items: center; }
+  .about-text { width: 100%; text-align: center; }
+}
+
+/* End of file */
