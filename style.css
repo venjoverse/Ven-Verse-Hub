@@ -97,10 +97,10 @@ body {
   opacity: 0;
 }
 
-/*===============================================Ven's Hub Hamburger Navbar===============================================*/
+/* Hamburger Icon */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* keeps title left & button right */
   align-items: center;
   padding: 15px 25px;
   position: relative;
@@ -117,6 +117,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
+  user-select: none;
 }
 
 .navbar-title:hover {
@@ -133,23 +134,37 @@ body {
   transition: transform 0.3s ease;
   z-index: 1100;
 }
+
+/* Bars */
 .hamburger span {
   position: absolute;
+  left: 0;
   width: 100%;
   height: 3px;
   background: white;
   border-radius: 10px;
   transition: all 0.3s ease;
 }
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 9px; }
-.hamburger span:nth-child(3) { bottom: 0; }
 
+/* Default bar positions */
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+.hamburger span:nth-child(2) {
+  top: 9px;
+}
+.hamburger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Active (X) state — centered perfectly */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg);
   top: 9px;
 }
-.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg);
   bottom: 9px;
@@ -179,7 +194,10 @@ body {
   max-height: 300px;
 }
 
-.nav-links li { text-align: center; margin: 5px 0; }
+.nav-links li {
+  text-align: center;
+  margin: 5px 0;
+}
 .nav-links a {
   display: block;
   color: white;
@@ -338,7 +356,7 @@ body {
   margin-bottom: 20px;
 }
 .skills-description ul { list-style: none; padding: 0; }
-.skills-description li { margin-bottom: 15px; text-align: center; font-size: 16px; color: #ddd; }
+.skills-description li { margin-bottom: 15px; text-align: left; font-size: 16px; color: #ddd; }
 .skills-description strong { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.3); }
 
 /*===============================================pc setup section & carousel===============================================*/
@@ -678,7 +696,7 @@ body {
   /* Navbar */
   .navbar { justify-content: center; padding: 12px 15px; }
   .navbar-title { font-size: 30px; text-align: center; margin-top: 5px;}
-  .hamburger { position: absolute; right: 15px; }
+  .hamburger { position: absolute; right: 20px; }
   .nav-links {
     display: none;
     flex-direction: column;
@@ -694,10 +712,10 @@ body {
     z-index: 999;
     transition: all 0.3s ease;
     gap: 15px;
-    box-shadow: none;              /* remove shadow from container */
-    background: none;              /* remove any background color */
-    backdrop-filter: none;         /* remove blur background */
-    border: none;                  /* just in case */
+    box-shadow: none;
+    background: none;
+    backdrop-filter: none;
+    border: none;
   }
 
   .nav-links.active {
@@ -706,9 +724,9 @@ body {
 
   .nav-links a {
       display: block;
-      max-width: 180px;       /* button width limit */
-      width: 90%;             /* adapt to container */
-      margin: 0 auto;         /* ✅ center button */
+      max-width: 180px;
+      width: 90%;
+      margin: 0 auto;
       padding: 10px 20px;
       text-align: center;
       color: white;
@@ -731,12 +749,12 @@ body {
       padding: 8px 16px;
       font-size: 14px;
       margin-top: 20px;
-      margin-bottom: 20px; /* spacing between buttons */
+      margin-bottom: 20px;
     }
 
     .nav-links a {
-      max-width: 160px;       /* smaller buttons */
-      width: 100%;            /* fill container */
+      max-width: 160px;
+      width: 100%;
       padding: 8px 16px;
       font-size: 14px;
     }
@@ -820,14 +838,14 @@ body {
 
   /* Text scaling */
   h1, h2 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
-  p, .game-info { font-size: 20px; }
-  .introduction { font-size: clamp(0.8rem, 3vw, 1rem); }
+  p, .game-info, .introduction { font-size: clamp(0.8rem, 3vw, 1rem); }
 
   /* Skills */
-  .skills { justify-content: center; gap: 15px; }
   .skill img { width: 50px; height: 50px; }
   .bar { width: 150px; }
-  .skills-description { text-align: center; margin: 30px auto; width: 100%; max-width: 100%; }
+  .skills-description ul { list-style: none; padding: 0; }
+  .skills-description li { margin-bottom: 15px; text-align: center; font-size: 16px; color: #ddd; }
+  .skills-description strong { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.3); }
 
   /* About/Profile */
   .profile-box img { width: 280px; height: 300px; }
