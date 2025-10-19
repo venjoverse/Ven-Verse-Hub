@@ -839,13 +839,11 @@ body {
   /* Text scaling */
   h1, h2 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
   p, .game-info, .introduction { font-size: clamp(0.8rem, 3vw, 1rem); }
+  .skills-description ul, .skills-description li, .skills-description strong { text-align: center; font-size: clamp(0.8rem, 3vw, 1rem); }
 
   /* Skills */
   .skill img { width: 50px; height: 50px; }
   .bar { width: 150px; }
-  .skills-description ul { list-style: none; padding: 0; }
-  .skills-description li { margin-bottom: 15px; text-align: center; font-size: 16px; color: #ddd; }
-  .skills-description strong { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.3); }
 
   /* About/Profile */
   .profile-box img { width: 280px; height: 300px; }
