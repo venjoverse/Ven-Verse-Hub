@@ -6,61 +6,63 @@
   <title>Ven Verse</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image: url('./pictures/background.jpg');">
+<body style="background-image: url('./pictures/background.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
 
   <header>
-      <div class="navbar">
-        <a href="index.html" class="navbar-title">Ven's Hub</a>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="setup.html">Setup</a></li>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="support.html">Support</a></li>
-        </ul>
+    <div class="navbar">
+      <a href="index.html" class="navbar-title">Ven's Hub</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
       </div>
-    </header>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="setup.html">Setup</a></li>
+        <li><a href="library.html" class="active">Library</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <section class="game-list">
-      <h2 class="games-list">Games</h2>
+  <!-- GAMES SECTION -->
+  <section class="library-section">
+    <h2 class="section-title">Games</h2>
+    <div class="library-grid">
+      <div class="library-item">
+        <img src="https://cdn1.epicgames.com/offer/fn/EN_FNECO_37-40_Fortnitemares_EGS_Launcher_KeyArt_Blade_1200x1600_1200x1600-fcecacfa95ad05b35f317bbae92620d1?resize=1&w=360&h=480&quality=medium" alt="Fortnite">
+        <p>Fortnite</p>
+      </div>
+      <div class="library-item">
+        <img src="https://www.activision.com/content/dam/atvi/support/contact-us/BO6-FOB.jpg" alt="Call Of Duty">
+        <p>Call Of Duty</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="games-library">
+  <!-- USERNAMES SECTION -->
+  <section class="library-section">
+    <h2 class="section-title">Usernames</h2>
+    <div class="username-grid">
 
-        <!-- Fortnite -->
-        <div class="game-item">
-            <div class="game-image-container">
-            <img src="https://cdn1.epicgames.com/offer/fn/EN_FNECO_37-40_Fortnitemares_EGS_Launcher_KeyArt_Blade_1200x1600_1200x1600-fcecacfa95ad05b35f317bbae92620d1?resize=1&w=360&h=480&quality=medium" alt="Fortnite">
-            </div>
-            <div class="game-info">
-            <p class="game-fortnite">Fortnite</p>
-            <div class="game-meta">
-                <img class="epic-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_logo.svg/516px-Epic_Games_logo.svg.png" alt="Epic Games">
-                <p class="username">ven signing off</p>
-            </div>
-            </div>
-        </div>
-
-        <!-- Call of Duty -->
-        <div class="game-item">
-            <div class="game-image-container">
-            <img src="https://www.activision.com/content/dam/atvi/support/contact-us/BO6-FOB.jpg" alt="Call of Duty">
-            </div>
-            <div class="game-info">
-            <p class="game-cod">Call Of Duty</p>
-            <div class="game-meta">
-                <img class="activision-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1200px-Steam_icon_logo.svg.png" alt="Activision">
-                <span class="username">venjoverse</span>
-            </div>
-            </div>
+      <!-- Epic Games -->
+      <div class="username-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_logo.svg/516px-Epic_Games_logo.svg.png" alt="Epic Games">
+        <div class="username-text">
+          <p class="username">ven signing off</p>
+          <p class="platform">Epic Games</p>
         </div>
       </div>
-    </section>
-  </div>
+
+      <!-- Steam -->
+      <div class="username-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1200px-Steam_icon_logo.svg.png" alt="Steam">
+        <div class="username-text">
+          <p class="username">venjoverse</p>
+          <p class="platform">Steam</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>

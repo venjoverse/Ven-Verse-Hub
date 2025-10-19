@@ -1,32 +1,39 @@
-/*===============================================
-  CLEANED / FIXED style.css
-  - Consolidated mobile media queries
-  - Removed duplicate selectors and conflicts
-  - Background set to scroll so it moves while scrolling
-===============================================*/
+/*===============================================🌌 CINEMATIC ANIMATIONS ===============================================*/
+/*
+ * Professional-style motion inspired by high-end portfolio and studio websites.
+ * Smooth parallax motion, soft blur entry, and elegant glow transitions.
+ */
 
-/*===============================================global animations===============================================*/
-@keyframes fadeUp {
-  from {
+@keyframes fadeUpCinematic {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px) scale(0.98) skewY(1.5deg);
+    filter: blur(4px);
   }
-  to {
+  50% {
+    opacity: 0.7;
+    transform: translateY(10px) scale(1.01);
+    filter: blur(1.5px);
+  }
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1) skewY(0);
+    filter: blur(0);
   }
 }
 
-@keyframes pulseGlowBox {
-  0% { box-shadow: 0 0 15px rgba(255,255,255,0.4); }
-  50% { box-shadow: 0 0 25px rgba(255,255,255,0.8); }
-  100% { box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+/* Subtle glowing box pulse — cinematic bloom */
+@keyframes softGlowBox {
+  0% { box-shadow: 0 0 12px rgba(255,255,255,0.2); }
+  50% { box-shadow: 0 0 28px rgba(255,255,255,0.6); }
+  100% { box-shadow: 0 0 12px rgba(255,255,255,0.2); }
 }
 
-@keyframes pulseGlowFilter {
-  0% { filter: drop-shadow(0 0 15px rgba(255,255,255,0.4)); }
-  50% { filter: drop-shadow(0 0 25px rgba(255,255,255,0.8)); }
-  100% { filter: drop-shadow(0 0 15px rgba(255,255,255,0.4)); }
+/* Soft light shimmer for text/logos/icons */
+@keyframes softGlowFilter {
+  0% { filter: drop-shadow(0 0 12px rgba(255,255,255,0.2)); }
+  50% { filter: drop-shadow(0 0 28px rgba(255,255,255,0.6)); }
+  100% { filter: drop-shadow(0 0 12px rgba(255,255,255,0.2)); }
 }
 
 /*===============================================custom fonts===============================================*/
@@ -45,27 +52,25 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  /* Hide horizontal scrollbar, allow vertical scroll */
   overflow-x: hidden;
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 body {
-  /* Background: removed fixed attachment so background moves when scrolling */
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll; /* allows background to move while scrolling */
+  background-attachment: scroll;
   color: white;
   min-height: 100vh;
   overflow-y: auto;
   margin: 0;
   font-family: 'Arial', sans-serif;
+  animation: fadeUpCinematic 1.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Hide scrollbar for WebKit browsers */
 ::-webkit-scrollbar { display: none; }
 
 /*===============================================welcome & intro section===============================================*/
@@ -77,7 +82,7 @@ body {
   color: white;
   margin-bottom: 70px;
   text-shadow: 0 0 12px rgba(255,255,255,0.4);
-  animation: fadeUp 1.5s ease forwards;
+  animation: fadeUpCinematic 1.5s ease forwards;
   opacity: 0;
 }
 
@@ -88,7 +93,7 @@ body {
   margin: 0 250px;
   font-size: 20px;
   color: white;
-  animation: fadeUp 2s ease forwards;
+  animation: fadeUpCinematic 2s ease forwards;
   opacity: 0;
 }
 
@@ -115,7 +120,7 @@ body {
 }
 
 .navbar-title:hover {
-  animation: pulseGlowFilter 2.5s infinite ease-in-out;
+  animation: softGlowFilter 2.5s infinite ease-in-out;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -200,7 +205,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Profile box */
 .profile-box {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 20px;
@@ -210,7 +214,7 @@ body {
   width: 280px;
   flex-shrink: 0;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  animation: fadeUp 1.2s ease forwards;
+  animation: fadeUpCinematic 1.2s ease forwards;
   opacity: 0;
 }
 .profile-box img {
@@ -219,14 +223,16 @@ body {
   object-fit: cover;
   border-radius: 15px;
   margin-bottom: 10px;
-  animation: fadeUp 1.8s ease forwards;
+  animation: fadeUpCinematic 1.8s ease forwards;
   opacity: 0;
 }
 .profile-box h3 { letter-spacing: 2px; font-size: 14px; margin-bottom: 5px; }
 .profile-box p { font-size: 14px; margin-bottom: 10px; }
 
-/* Interests & social */
-.name, .hobby, .interests, .social-media { animation: fadeUp 2s ease forwards; opacity: 0; }
+.name, .hobby, .interests, .social-media {
+  animation: fadeUpCinematic 2s ease forwards;
+  opacity: 0;
+}
 .hobby { font-weight: bold; font-family: 'Arial', serif; font-size: 14px; margin-bottom: 50px; }
 .interests, .social-media {
   font-family: 'Arial', serif;
@@ -266,7 +272,7 @@ body {
   flex: 1;
   max-width: 700px;
   text-align: left;
-  animation: fadeUp 1.5s ease forwards;
+  animation: fadeUpCinematic 1.5s ease forwards;
   opacity: 0;
 }
 .about-text h1, .about-text h2 {
@@ -299,7 +305,7 @@ body {
   margin-bottom: 20px;
   border: 2px solid rgba(255,255,255,0.2);
   box-shadow: 0 0 20px rgba(255,255,255,0.4);
-  animation: fadeUp 1.5s ease forwards, pulseGlowBox 3s infinite ease-in-out;
+  animation: fadeUpCinematic 1.5s ease forwards, softGlowBox 3s infinite ease-in-out;
 }
 .bar { width: 180px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 10px; overflow: hidden; }
 .progress {
@@ -321,7 +327,7 @@ body {
   color: #f0f0f0;
   font-family: 'Arial', serif;
   line-height: 1.7;
-  animation: fadeUp 1.5s ease forwards;
+  animation: fadeUpCinematic 1.5s ease forwards;
   opacity: 0;
 }
 .skills-description h2 {
@@ -343,7 +349,7 @@ body {
   font-size: 30px;
   color: white;
   margin-bottom: 150px;
-  animation: fadeUp 1.5s ease forwards;
+  animation: fadeUpCinematic 1.5s ease forwards;
   opacity: 0;
 }
 
@@ -404,7 +410,7 @@ body {
 .specs-section, .peripherals-section {
   text-align: center;
   padding: 60px 5%;
-  animation: fadeUp 1.5s ease forwards;
+  animation: fadeUpCinematic 1.5s ease forwards;
   opacity: 0;
 }
 
@@ -416,7 +422,6 @@ body {
   text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
-/* Shared gallery layout — desktop */
 .spec-gallery, .peripheral-gallery {
   display: flex;
   justify-content: center;
@@ -442,7 +447,7 @@ body {
 }
 .spec-item img:hover, .peripheral-item img:hover {
   transform: scale(1.05);
-  animation: pulseGlowFilter 2.5s infinite ease-in-out;
+  animation: softGlowFilter 2.5s infinite ease-in-out;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 .spec-desc {
@@ -455,85 +460,156 @@ body {
   line-height: 1.4;
 }
 
-/*===============================================library section===============================================*/
-.games-list {
-  font-family: 'EagleHorizon', cursive;
-  font-size: 40px;
-  text-align: center;
+/*=============================================== library section ===============================================*/
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
   color: white;
-  margin-bottom: 3px;
-  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  text-align: center;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.games-library {
+/* Section Titles */
+.section-title {
+  font-family: 'EagleHorizon', cursive;
+  font-size: 40px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  margin-bottom: 30px;
+}
+
+/* Games grid */
+.library-section {
+  padding: 60px 20px;
+}
+
+.library-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 60px;
-  padding: 150px;
 }
 
-.game-item {
-  position: relative;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 15px;
-  overflow: hidden;
-  width: 220px;
-  padding: 15px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.15);
+.library-item {
+  text-align: center;
 }
-.game-item:hover { transform: scale(1.05); animation: pulseGlowBox 2.5s infinite ease-in-out; }
 
-.game-image-container img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
+.library-item img {
+  width: 200px;
+  height: 250px;
   border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.library-item img:hover {
+  transform: scale(1.05);
+}
+
+.library-item p {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Grid layout */
+.username-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  padding: 20px;
+}
+
+/* Each username item (logo + text side by side) */
+.username-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+/* Logo styling */
+.username-item img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
   display: block;
 }
 
-.game-info {
-  padding: 10px;
-  font-family: 'Arial', serif;
-  font-size: 15px;
-  color: white;
-  text-align: center;
-  background: none;
+/* Username + platform text container */
+.username-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.game-fortnite, .game-cod { font-weight: bold; }
+/* Username text */
+.username-text .username {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
 
+/* Platform name */
+.username-text .platform {
+  font-size: 13px;
+  color: #ccc;
+  margin: 2px 0 0 0;
+}
+
+/*=============================================== GAME META — CENTER FIX ===============================================*/
 .game-meta {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
-  text-align: center;
-  margin-top: 5px;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #ddd;
 }
 
-.username {
-  font-size: 0.85em;
-  color: #ffffff;
-  font-weight: 600;
+.game-meta img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
-.game-meta img { width: 30px; height: 30px; object-fit: contain; border-radius: 0; }
-.activision-logo, .epic-logo { filter: none; }
+
+@media (max-width: 768px) {
+  .navbar { flex-wrap: wrap; justify-content: center; }
+  .introduction { margin: 0 40px; font-size: 16px; }
+  .about { flex-direction: column; align-items: center; gap: 50px; }
+  .about-text, .skills-description { text-align: center; }
+  .spec-gallery, .peripheral-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .spec-item img, .peripheral-item img { width: 100px; height: auto; }
+}
 
 /*===============================================support section===============================================*/
 .support {
-  margin-top: 150px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
   text-align: center;
   font-family: 'EagleHorizon', serif;
   font-size: 40px;
   color: white;
-  margin-bottom: 150px;
   text-shadow: 0 0 12px rgba(255,255,255,0.4);
-  animation: fadeUp 1.5s ease forwards;
-  opacity: 0;
+  opacity: 1; /* for testing */
 }
 
 /*===============================================Responsive rules (consolidated)===============================================*/
@@ -693,7 +769,7 @@ body {
     height: auto;
   }
 
-  /* ✅ iPhone 12–15, 1080×2436 portrait */
+  /* iPhone 12–15, 1080×2436 portrait - Dont touch anything here.*/
   @media only screen and (min-width: 390px) and (max-width: 430px) and (orientation: portrait) {
   .spec-gallery,
   .peripheral-gallery {
@@ -735,16 +811,17 @@ body {
 
   /* Games Library -> single column on small screens */
   .games-library { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 20px; justify-items: center; }
-  .game-item { width: 90%; background: rgba(0, 0, 0, 0.4); border-radius: 15px; padding-bottom: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.5); }
-  .game-image-container img { width: 100%; height: 290px; object-fit: cover; border-radius: 12px 12px 0 0; }
-  .game-info { font-size: 1rem; padding: 10px 0; color: white; }
+  .game-item { width: 50%; background: rgba(255, 255, 255, 0.08); border-radius: 15px; padding-bottom: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.5); }
+  .game-image-container img { width: 100%; height: 290px; object-fit: cover; border-radius: 12px; margin-bottom: none; }
+  .game-info { font-size: 1rem; padding: 10px 2; color: white; }
   .game-info h3 { margin: 5px 0; font-size: 1.2rem; }
   .game-meta img { width: 26px; height: 26px; }
-  .username { font-size: 0.9rem; opacity: 0.85; }
+  .username { font-size: 20px; opacity: 0.85; }
 
   /* Text scaling */
   h1, h2 { font-size: clamp(1.2rem, 4vw, 1.6rem); }
-  p, .game-info, .introduction { font-size: clamp(0.8rem, 3vw, 1rem); }
+  p, .game-info { font-size: 20px; }
+  .introduction { font-size: clamp(0.8rem, 3vw, 1rem); }
 
   /* Skills */
   .skills { justify-content: center; gap: 15px; }
@@ -753,7 +830,7 @@ body {
   .skills-description { text-align: center; margin: 30px auto; width: 100%; max-width: 100%; }
 
   /* About/Profile */
-  .profile-box img { width: 120px; height: 120px; border-radius: 50%; }
+  .profile-box img { width: 280px; height: 300px; }
   .about { padding: 20px; flex-direction: column; align-items: center; }
   .about-text { width: 100%; text-align: center; }
 }
